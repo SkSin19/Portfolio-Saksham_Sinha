@@ -74,7 +74,7 @@ export default function AboutSection() {
                         <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-[#ff006e]" />
 
                         <div className="border border-white/10 bg-[#07070c] p-2 relative overflow-hidden">
-                            <div className="relative aspect-[16/9] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <div className="relative aspect-video overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
                                 <Image
                                     src="/profile.jpg"
                                     alt="Saksham Sinha"
@@ -84,15 +84,15 @@ export default function AboutSection() {
                                     priority
                                 />
                                 {/* Cyber HUD Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent opacity-60" />
+                                <div className="absolute inset-0 bg-linear-to-t from-[#050508] via-transparent to-transparent opacity-60" />
                                 <div className="absolute top-2 left-2 text-[9px] font-mono bg-black/60 text-[#00f5ff] px-2 py-0.5 border border-[#00f5ff]/20">
                                     SYS.REC // SAKSHAM
                                 </div>
                                 <div className="absolute bottom-2 right-2 text-[9px] font-mono bg-black/60 text-[#ff006e] px-2 py-0.5 border border-[#ff006e]/20">
-                                    KIIT_ECELL
+                                    SS
                                 </div>
                                 {/* Scanline effect */}
-                                <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,_rgba(0,0,0,0.25)_50%),_linear-gradient(90deg,_rgba(255,0,0,0.06),_rgba(0,255,0,0.02),_rgba(0,0,255,0.06))] bg-[size:100%_4px,_6px_100%] opacity-20" />
+                                <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-size-[100%_4px,6px_100%] opacity-20" />
                             </div>
                         </div>
 

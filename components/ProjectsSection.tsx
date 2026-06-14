@@ -3,7 +3,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 
-// Custom Github icon (lucide-react version may not export Github)
 const Github = ({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) => (
     <svg viewBox="0 0 24 24" width={size} height={size} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
         <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -11,15 +10,22 @@ const Github = ({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & { size?
     </svg>
 );
 
+const logoMap: Record<string, string> = {
+    "Kute: Dating & Chat App": "/images/KUTE_LOGO.webp",
+    "Digital Security Solutions": "/images/DSS_Logo.webp",
+    "KIIT E-Cell Official App": "/images/E-Cell_Logo.webp",
+    "KIIT E-Cell Official Website": "/images/E-Cell_Logo.webp",
+    "E-Summit 2025 Official Website": "/images/ESummit_Logo.webp",
+    "Build School 2026 Website": "/images/BuildSchool_Logo.webp",
+};
+
 const projects = [
     {
         id: 1,
         title: "Kute: Dating & Chat App",
         type: "MOBILE APP",
-        typeColor: "#00f5ff",
         period: "May 2025 – Nov 2025",
-        description:
-            "Modern dating app with advanced matching algorithms and interactive games to boost engagement. Achieved 100+ live users.",
+        description: "Modern dating app with advanced matching algorithms and interactive games to boost engagement. Achieved 100+ live users.",
         tech: ["React Native", "Node.js", "Express.js", "MongoDB"],
         accent: "#00f5ff",
         dotColor: "#00f5ff",
@@ -31,10 +37,8 @@ const projects = [
         id: 2,
         title: "Rant",
         type: "WELLNESS PLATFORM",
-        typeColor: "#ff006e",
         period: "Nov 2025 – Jan 2026",
-        description:
-            "Peer-to-peer platform connecting users with trained listeners for real-time mental health support. Proven to improve mental health for 100+ live users in a first-rate city.",
+        description: "Peer-to-peer platform connecting users with trained listeners for real-time mental health support. Proven to improve mental health for 100+ live users in a first-rate city.",
         tech: ["React Native", "Node.js", "MongoDB", "WebSockets"],
         accent: "#ff006e",
         dotColor: "#ff006e",
@@ -46,10 +50,8 @@ const projects = [
         id: 3,
         title: "Digital Security Solutions",
         type: "WEB APP",
-        typeColor: "#00ff88",
         period: "2025 – Present",
-        description:
-            "Full-stack e-commerce and enquiry platform for a security camera products business. Features 3D CCTV model hero, Cloudflare Turnstile bot protection, live MongoDB product catalog, and animated UI.",
+        description: "Full-stack e-commerce and enquiry platform for a security camera products business. Features 3D CCTV model hero, Cloudflare Turnstile bot protection, live MongoDB product catalog, and animated UI.",
         tech: ["Next.js", "TypeScript", "Express.js", "MongoDB", "Three.js"],
         accent: "#00ff88",
         dotColor: "#00ff88",
@@ -61,10 +63,8 @@ const projects = [
         id: 4,
         title: "KIIT E-Cell Official App",
         type: "MOBILE APP",
-        typeColor: "#ffa500",
         period: "2025 – Present",
-        description:
-            "Official mobile app for KIIT E-Cell built with Expo Router. Handles event listings, member management, and organizational updates for one of India's largest student entrepreneurship cells.",
+        description: "Official mobile app for KIIT E-Cell built with Expo Router. Handles event listings, member management, and organizational updates for one of India's largest student entrepreneurship cells.",
         tech: ["React Native", "Expo Router", "TypeScript", "Node.js", "MongoDB"],
         accent: "#ffa500",
         dotColor: "#ffa500",
@@ -76,10 +76,8 @@ const projects = [
         id: 5,
         title: "KIIT E-Cell Official Website",
         type: "WEB APP",
-        typeColor: "#bf5fff",
         period: "Jan 2025 – Oct 2025",
-        description:
-            "Played a major part in development of the official KIIT E-Cell Webpage with 10,000+ visits. Refactored code to improve load times by 20%.",
+        description: "Played a major part in development of the official KIIT E-Cell Webpage with 10,000+ visits. Refactored code to improve load times by 20%.",
         tech: ["Next.js", "React", "Node.js", "MongoDB"],
         accent: "#bf5fff",
         dotColor: "#bf5fff",
@@ -91,10 +89,8 @@ const projects = [
         id: 6,
         title: "E-Summit 2025 Official Website",
         type: "EVENT PLATFORM",
-        typeColor: "#ff6b35",
         period: "Aug 2025 – Present",
-        description:
-            "Official E-Summit 2025 Webpage with 3,000+ visits and 800+ live applications. Improved load times by 30%.",
+        description: "Official E-Summit 2025 Webpage with 3,000+ visits and 800+ live applications. Improved load times by 30%.",
         tech: ["Next.js", "Express.js", "Node.js", "MongoDB", "AWS"],
         accent: "#ff6b35",
         dotColor: "#ff6b35",
@@ -106,10 +102,8 @@ const projects = [
         id: 7,
         title: "Build School 2026 Website",
         type: "COMMUNITY PLATFORM",
-        typeColor: "#f7df1e",
         period: "Aug 2025 – Present",
-        description:
-            "Led a team of colleagues to build the Build School website from scratch. Gained 2,000+ visits from students and companies, bridging mentors and students.",
+        description: "Led a team of colleagues to build the Build School website from scratch. Gained 2,000+ visits from students and companies, bridging mentors and students.",
         tech: ["Next.js", "React", "Node.js", "MongoDB"],
         accent: "#f7df1e",
         dotColor: "#f7df1e",
@@ -125,8 +119,7 @@ const hackathonProjects = [
         title: "Medisphere",
         type: "HACKATHON",
         subtitle: "Medicine at Ease",
-        description:
-            "Hackathon project enabling easy access to medicines and health resources. Built under time pressure with a complete mobile-first experience.",
+        description: "Hackathon project enabling easy access to medicines and health resources. Built under time pressure with a complete mobile-first experience.",
         tech: ["React Native", "Node.js", "Express.js", "MongoDB"],
         accent: "#00d4aa",
         borderColor: "rgba(0,212,170,0.3)",
@@ -137,8 +130,7 @@ const hackathonProjects = [
         title: "Kraving",
         type: "HACKATHON",
         subtitle: "Hostellite Food App",
-        description:
-            "Food ordering and discovery app tailored for hostel students, connecting them with nearby mess and canteen options on campus.",
+        description: "Food ordering and discovery app tailored for hostel students, connecting them with nearby mess and canteen options on campus.",
         tech: ["React Native", "Node.js", "MongoDB"],
         accent: "#ff4757",
         borderColor: "rgba(255,71,87,0.3)",
@@ -149,8 +141,7 @@ const hackathonProjects = [
         title: "Pixelligence",
         type: "HACKATHON",
         subtitle: "AI-Powered Photo Search",
-        description:
-            "Google Photos-inspired gallery app that uses Gemini API to auto-tag images with semantic keywords, enabling natural language photo search.",
+        description: "Google Photos-inspired gallery app that uses Gemini API to auto-tag images with semantic keywords, enabling natural language photo search.",
         tech: ["React Native", "Gemini API", "Node.js", "MongoDB"],
         accent: "#a29bfe",
         borderColor: "rgba(162,155,254,0.3)",
@@ -161,8 +152,7 @@ const hackathonProjects = [
         title: "Reroll",
         type: "HACKATHON",
         subtitle: "Social Media for Education",
-        description:
-            "Education-focused social media platform where students share knowledge, collaborate on projects, and build learning communities.",
+        description: "Education-focused social media platform where students share knowledge, collaborate on projects, and build learning communities.",
         tech: ["React Native", "Node.js", "Express.js", "MongoDB", "WebSockets"],
         accent: "#fd9644",
         borderColor: "rgba(253,150,68,0.3)",
@@ -173,8 +163,7 @@ const hackathonProjects = [
         title: "Pandora's Paradox",
         type: "HACKATHON",
         subtitle: "Hackathon Platform",
-        description:
-            "Full-stack hackathon registration and management platform that handled large-scale participant registrations smoothly under peak load.",
+        description: "Full-stack hackathon registration and management platform that handled large-scale participant registrations smoothly under peak load.",
         tech: ["Next.js", "Node.js", "Express.js", "MongoDB"],
         accent: "#e84393",
         borderColor: "rgba(232,67,147,0.3)",
@@ -187,8 +176,7 @@ const sideProjects = [
         id: "s1",
         title: "Alpaca Classifier",
         subtitle: "Deep Learning · End-to-End",
-        description:
-            "End-to-end mobile app that classifies whether an image contains an alpaca or not. React Native frontend, Node.js middleware, FastAPI + TensorFlow inference backend.",
+        description: "End-to-end mobile app that classifies whether an image contains an alpaca or not. React Native frontend, Node.js middleware, FastAPI + TensorFlow inference backend.",
         tech: ["React Native", "Node.js", "FastAPI", "TensorFlow"],
         accent: "#74b9ff",
         sourceUrl: "#",
@@ -197,8 +185,7 @@ const sideProjects = [
         id: "s2",
         title: "Housing Prices Predictor",
         subtitle: "Machine Learning",
-        description:
-            "Classic ML regression project predicting housing prices from feature data. Covers data preprocessing, feature engineering, and model evaluation.",
+        description: "Classic ML regression project predicting housing prices from feature data. Covers data preprocessing, feature engineering, and model evaluation.",
         tech: ["Python", "Scikit-learn", "Pandas", "NumPy"],
         accent: "#55efc4",
         sourceUrl: "#",
@@ -209,6 +196,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
     const [hovered, setHovered] = useState(false);
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, margin: "-50px" });
+    const logoSrc = logoMap[project.title];
 
     return (
         <motion.div
@@ -229,7 +217,19 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             >
                 {/* Project preview */}
                 <div className="relative bg-[#0d0d18] h-44 flex items-center justify-center overflow-hidden shrink-0">
-                    <div className="relative flex items-center justify-center">
+
+                    {/* Logo background — full area, low opacity */}
+                    {logoSrc && (
+                        <img
+                            src={logoSrc}
+                            alt=""
+                            aria-hidden="true"
+                            className="absolute inset-0 w-full h-full object-contain p-6 opacity-[0.07] pointer-events-none select-none"
+                        />
+                    )}
+
+                    {/* Animated dot + spinner — always on top */}
+                    <div className="relative z-10 flex items-center justify-center">
                         <motion.div
                             animate={hovered ? { scale: [1, 1.3, 1] } : {}}
                             transition={{ duration: 1, repeat: Infinity }}
@@ -241,36 +241,44 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                             style={{ borderColor: project.dotColor, animationDuration: "3s" }}
                         />
                     </div>
-                    <div className="absolute top-3 right-3 text-[9px] font-mono text-white/30 border border-white/10 px-2 py-0.5">
+
+                    <div className="absolute top-3 right-3 text-[9px] font-mono text-white/30 border border-white/10 px-2 py-0.5 z-10">
                         {project.period}
                     </div>
-                    <div className="absolute bottom-3 text-xs font-mono tracking-widest text-white/30">
+                    <div className="absolute bottom-3 text-xs font-mono tracking-widest text-white/30 z-10">
                         {project.type}
                     </div>
 
-                    {/* Hover overlay with buttons */}
+                    {/* Hover overlay */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: hovered ? 1 : 0 }}
-                        className="absolute inset-0 bg-[#050508]/80 flex items-center justify-center gap-4"
+                        className="absolute inset-0 bg-[#050508]/80 flex items-center justify-center gap-4 z-20"
                     >
-                        <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="border text-xs px-5 py-2.5 font-mono tracking-widest hover:bg-white/5 transition-all flex items-center gap-2"
-                            style={{ borderColor: project.accent, color: project.accent }}
-                        >
-                            <ExternalLink size={12} /> LIVE
-                        </a>
-                        <a
-                            href={project.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="border border-white/30 text-white/60 text-xs px-5 py-2.5 font-mono tracking-widest hover:bg-white/5 transition-all flex items-center gap-2"
-                        >
-                            <Github size={12} /> CODE
-                        </a>
+                        {project.liveUrl !== "#" && (
+                            <a
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="border text-xs px-5 py-2.5 font-mono tracking-widest hover:bg-white/5 transition-all flex items-center gap-2"
+                                style={{ borderColor: project.accent, color: project.accent }}
+                            >
+                                <ExternalLink size={12} /> LIVE
+                            </a>
+                        )}
+                        {project.sourceUrl !== "#" && (
+                            <a
+                                href={project.sourceUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="border border-white/30 text-white/60 text-xs px-5 py-2.5 font-mono tracking-widest hover:bg-white/5 transition-all flex items-center gap-2"
+                            >
+                                <Github size={12} /> CODE
+                            </a>
+                        )}
+                        {project.liveUrl === "#" && project.sourceUrl === "#" && (
+                            <span className="text-[10px] font-mono text-white/30 tracking-widest">COMING SOON</span>
+                        )}
                     </motion.div>
                 </div>
 
@@ -348,14 +356,16 @@ function HackathonCard({ project, index }: { project: typeof hackathonProjects[0
                         </span>
                     ))}
                 </div>
-                <a
-                    href={project.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-1.5 text-[10px] font-mono text-white/30 hover:text-white/60 transition-colors mt-1 w-fit"
-                >
-                    <Github size={10} /> CODE
-                </a>
+                {project.sourceUrl !== "#" && (
+                    <a
+                        href={project.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-1.5 text-[10px] font-mono text-white/30 hover:text-white/60 transition-colors mt-1 w-fit"
+                    >
+                        <Github size={10} /> CODE
+                    </a>
+                )}
             </div>
         </motion.div>
     );
@@ -371,7 +381,7 @@ function SideProjectCard({ project, index }: { project: typeof sideProjects[0]; 
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="border border-white/06 bg-[#050508] p-5 flex gap-4 items-start hover:border-white/15 transition-all duration-300"
+            className="border border-white/[0.06] bg-[#050508] p-5 flex gap-4 items-start hover:border-white/[0.15] transition-all duration-300"
         >
             <div
                 className="w-2 h-2 rounded-full shrink-0 mt-1.5"
@@ -393,14 +403,16 @@ function SideProjectCard({ project, index }: { project: typeof sideProjects[0]; 
                     ))}
                 </div>
             </div>
-            <a
-                href={project.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="text-white/20 hover:text-white/50 transition-colors shrink-0"
-            >
-                <Github size={14} />
-            </a>
+            {project.sourceUrl !== "#" && (
+                <a
+                    href={project.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-white/20 hover:text-white/50 transition-colors shrink-0"
+                >
+                    <Github size={14} />
+                </a>
+            )}
         </motion.div>
     );
 }
@@ -457,14 +469,14 @@ export default function ProjectsSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="mb-8"
+                    className="mb-12"
                 >
                     <div className="flex items-center gap-4 mb-8">
-                        <div className="h-px flex-1 bg-white/08" />
+                        <div className="h-px flex-1 bg-white/[0.08]" />
                         <div className="border border-white/20 px-4 py-1.5 text-[10px] tracking-widest text-white/40 font-mono">
                             HACKATHON BUILDS
                         </div>
-                        <div className="h-px flex-1 bg-white/08" />
+                        <div className="h-px flex-1 bg-white/[0.08]" />
                     </div>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {hackathonProjects.map((project, i) => (
@@ -482,11 +494,11 @@ export default function ProjectsSection() {
                     className="mb-16"
                 >
                     <div className="flex items-center gap-4 mb-6">
-                        <div className="h-px flex-1 bg-white/08" />
+                        <div className="h-px flex-1 bg-white/[0.08]" />
                         <div className="border border-white/20 px-4 py-1.5 text-[10px] tracking-widest text-white/40 font-mono">
                             SIDE PROJECTS &amp; EXPERIMENTS
                         </div>
-                        <div className="h-px flex-1 bg-white/08" />
+                        <div className="h-px flex-1 bg-white/[0.08]" />
                     </div>
                     <div className="grid md:grid-cols-2 gap-3">
                         {sideProjects.map((project, i) => (
