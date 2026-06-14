@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#050508] text-white selection:bg-[#00f5ff] selection:text-black">
+    <div className="min-h-screen bg-[#050508] text-white selection:bg-[#00f5ff] selection:text-black select-none">
       <ScrollProgress />
       <Navbar />
       <main>

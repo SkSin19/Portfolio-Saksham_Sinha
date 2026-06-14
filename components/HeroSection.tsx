@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-const ROLES = ["Full-Stack Developer", "App Developer", "UI/UX Designer", "ML Engineer"];
+const ROLES = ["App Developer", "ML Engineer"];
 
 export default function HeroSection() {
     const [roleIndex, setRoleIndex] = useState(0);
@@ -79,7 +80,7 @@ export default function HeroSection() {
                     className="text-xl md:text-3xl mb-8 font-mono h-10 flex items-center justify-center gap-3"
                 >
                     <span className="text-[#00f5ff]">Full-Stack</span>
-                    <span className="text-white/60">Developer &amp;</span>
+                    <span className="text-white/60">Web Developer &amp;</span>
                     <span className="text-[#ff006e]">
                         {displayed}
                         <span className="cursor-blink">|</span>
