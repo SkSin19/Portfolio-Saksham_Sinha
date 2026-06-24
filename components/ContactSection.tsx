@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
 import { motion, useInView } from "framer-motion";
@@ -103,7 +104,7 @@ export default function ContactSection() {
           >
             <div className="absolute top-0 left-0 w-2 h-2 bg-[#00f5ff] shadow-[0_0_10px_#00f5ff]" />
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 mb-6">
               <h3 className="text-xl font-bold font-mono text-white mb-2">
                 // DIRECTORIES
               </h3>
@@ -178,7 +179,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 border border-white/10 p-8 bg-[#050508]/80 backdrop-blur-sm"
           >
-            <form
+            {/* <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-6 font-mono text-xs"
             >
@@ -249,7 +250,11 @@ export default function ContactSection() {
                   </>
                 )}
               </motion.button>
-            </form>
+            </form> */}
+            <div className="coming-soon-box flex align-center justify-center top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] absolute gap-2">
+            <span className="text-2xl md:text-4xl text-[#00f5ff] glow-cyan font-black">Coming</span>
+            <span className="text-2xl md:text-4xl text-[#ffffff] glow-cyan font-black">Soon</span>
+            </div>
           </motion.div>
         </div>
       </div>

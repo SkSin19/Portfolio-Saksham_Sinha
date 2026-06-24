@@ -382,7 +382,7 @@ export default function HeroSection() {
               <span className="ac">10,000+</span> Live Users
             </h2>
             <h2 className="det-h det-line" ref={d2H2Ref}>
-              CGPA <span className="acp">8.39</span>
+              OPTIMIZATIONS <span className="acp">30+</span>
             </h2>
             <p className="det-sub det-line" ref={d2SubRef}>
               Kute · Zepto Clone · DSS · KIIT E-Cell · Hackathon Builds

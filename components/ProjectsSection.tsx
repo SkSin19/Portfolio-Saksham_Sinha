@@ -2,6 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 const Github = ({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) => (
     <svg viewBox="0 0 24 24" width={size} height={size} stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -23,7 +24,7 @@ const projects = [
     {
         id: 1,
         title: "Kute: Dating & Chat App",
-        type: "MOBILE APP",
+        type: "DATING APP",
         period: "May 2025 – Nov 2025",
         description: "Modern dating app with advanced matching algorithms and interactive games to boost engagement. Achieved 100+ live users.",
         tech: ["React Native", "Node.js", "Express.js", "MongoDB"],
@@ -49,7 +50,7 @@ const projects = [
     {
         id: 3,
         title: "Digital Security Solutions",
-        type: "WEB APP",
+        type: "E-COMMERCE PLATFORM",
         period: "2025 – Present",
         description: "Full-stack e-commerce and enquiry platform for a security camera products business. Features 3D CCTV model hero, Cloudflare Turnstile bot protection, live MongoDB product catalog, and animated UI.",
         tech: ["Next.js", "TypeScript", "Express.js", "MongoDB", "Three.js"],
@@ -62,7 +63,7 @@ const projects = [
     {
         id: 4,
         title: "KIIT E-Cell Official App",
-        type: "MOBILE APP",
+        type: "COMMUNITY APP",
         period: "2025 – Present",
         description: "Official mobile app for KIIT E-Cell built with Expo Router. Handles event listings, member management, and organizational updates for one of India's largest student entrepreneurship cells.",
         tech: ["React Native", "Expo Router", "TypeScript", "Node.js", "MongoDB"],
@@ -75,7 +76,7 @@ const projects = [
     {
         id: 5,
         title: "KIIT E-Cell Official Website",
-        type: "WEB APP",
+        type: "COMMUNITY WEBSITE",
         period: "Jan 2025 – Oct 2025",
         description: "Played a major part in development of the official KIIT E-Cell Webpage with 10,000+ visits. Refactored code to improve load times by 20%.",
         tech: ["Next.js", "React", "Node.js", "MongoDB"],
@@ -88,7 +89,7 @@ const projects = [
     {
         id: 6,
         title: "E-Summit 2025 Official Website",
-        type: "EVENT PLATFORM",
+        type: "FLAGSHIP EVENT PLATFORM",
         period: "Aug 2025 – Present",
         description: "Official E-Summit 2025 Webpage with 3,000+ visits and 800+ live applications. Improved load times by 30%.",
         tech: ["Next.js", "Express.js", "Node.js", "MongoDB", "AWS"],
@@ -107,6 +108,19 @@ const projects = [
         tech: ["Next.js", "React", "Node.js", "MongoDB"],
         accent: "#f7df1e",
         dotColor: "#f7df1e",
+        borderColor: "rgba(247,223,30,0.3)",
+        liveUrl: "https://www.kiitecell.org/build-school",
+        sourceUrl: "https://www.kiitecell.org/build-school",
+    },
+    {
+        id: 8,
+        title: "Pandora's Paradox",
+        type: "HACKATHON EVENT WEBSITE",
+        period: "Aug 2025 – SEPT 2025",
+        description: "Single handedly built the official website for Pandora's Paradox hackathon. Gained 3,000+ visits from students.",
+        tech: ["Next.js", "React", "Node.js", "MongoDB"],
+        accent: "gray",
+        dotColor: "#ffffff",
         borderColor: "rgba(247,223,30,0.3)",
         liveUrl: "https://www.kiitecell.org/build-school",
         sourceUrl: "https://www.kiitecell.org/build-school",
@@ -160,15 +174,16 @@ const hackathonProjects = [
     },
     {
         id: "h5",
-        title: "Pandora's Paradox",
+        title: "Caelifi",
         type: "HACKATHON",
-        subtitle: "Hackathon Platform",
-        description: "Full-stack hackathon registration and management platform that handled large-scale participant registrations smoothly under peak load.",
+        subtitle: "IoT Device + Software",
+        description: "IoT based smart solar with the goal of turning sunlight into savings,  even during power cuts",
         tech: ["Next.js", "Node.js", "Express.js", "MongoDB"],
         accent: "#e84393",
         borderColor: "rgba(232,67,147,0.3)",
         sourceUrl: "#",
     },
+    
 ];
 
 const sideProjects = [
@@ -220,7 +235,9 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
                     {/* Logo background — full area, low opacity */}
                     {logoSrc && (
-                        <img
+                        <Image
+                            width={400}
+                            height={400}
                             src={logoSrc}
                             alt=""
                             aria-hidden="true"
@@ -330,7 +347,7 @@ function HackathonCard({ project, index }: { project: typeof hackathonProjects[0
             <div
                 className="border transition-all duration-300 p-5 h-full flex flex-col gap-3 bg-[#050508]"
                 style={{
-                    borderColor: hovered ? project.borderColor : "rgba(255,255,255,0.08)",
+                    borderColor: hovered ? project.borderColor : "rgba(255,255,255,0.1)",
                     boxShadow: hovered ? `0 0 20px ${project.accent}18` : "none",
                 }}
             >
@@ -339,7 +356,7 @@ function HackathonCard({ project, index }: { project: typeof hackathonProjects[0
                         <h3 className="text-sm font-bold font-mono" style={{ color: project.accent }}>
                             {project.title}
                         </h3>
-                        <p className="text-[10px] font-mono text-white/30 mt-0.5">{project.subtitle}</p>
+                        <p className="text-[10px] font-mono text-white/60 mt-0.5">{project.subtitle}</p>
                     </div>
                     <span
                         className="text-[9px] px-2 py-0.5 font-mono tracking-wider shrink-0"
@@ -348,7 +365,7 @@ function HackathonCard({ project, index }: { project: typeof hackathonProjects[0
                         {project.type}
                     </span>
                 </div>
-                <p className="text-white/40 text-[11px] font-mono leading-relaxed flex-1">{project.description}</p>
+                <p className="text-white/60 text-[11px] font-mono leading-relaxed flex-1">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5">
                     {project.tech.map((t) => (
                         <span key={t} className="border border-white/10 text-white/30 text-[9px] px-1.5 py-0.5 font-mono">
@@ -381,7 +398,7 @@ function SideProjectCard({ project, index }: { project: typeof sideProjects[0]; 
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="border border-white/[0.06] bg-[#050508] p-5 flex gap-4 items-start hover:border-white/[0.15] transition-all duration-300"
+            className="border border-white/6 bg-[#050508] p-5 flex gap-4 items-start hover:border-white/55 transition-all duration-300"
         >
             <div
                 className="w-2 h-2 rounded-full shrink-0 mt-1.5"
@@ -392,12 +409,12 @@ function SideProjectCard({ project, index }: { project: typeof sideProjects[0]; 
                     <span className="text-sm font-bold font-mono" style={{ color: project.accent }}>
                         {project.title}
                     </span>
-                    <span className="text-[10px] font-mono text-white/30">{project.subtitle}</span>
+                    <span className="text-[10px] font-mono text-white/60">{project.subtitle}</span>
                 </div>
-                <p className="text-white/40 text-[11px] font-mono leading-relaxed">{project.description}</p>
+                <p className="text-white/60 text-[11px] font-mono leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5 mt-1">
                     {project.tech.map((t) => (
-                        <span key={t} className="border border-white/10 text-white/30 text-[9px] px-1.5 py-0.5 font-mono">
+                        <span key={t} className="border border-white/10 text-white/60 text-[9px] px-1.5 py-0.5 font-mono">
                             {t}
                         </span>
                     ))}
@@ -472,11 +489,11 @@ export default function ProjectsSection() {
                     className="mb-12"
                 >
                     <div className="flex items-center gap-4 mb-8">
-                        <div className="h-px flex-1 bg-white/[0.08]" />
+                        <div className="h-px flex-1 bg-white/8" />
                         <div className="border border-white/20 px-4 py-1.5 text-[10px] tracking-widest text-white/40 font-mono">
                             HACKATHON BUILDS
                         </div>
-                        <div className="h-px flex-1 bg-white/[0.08]" />
+                        <div className="h-px flex-1 bg-white/8" />
                     </div>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {hackathonProjects.map((project, i) => (
@@ -494,11 +511,11 @@ export default function ProjectsSection() {
                     className="mb-16"
                 >
                     <div className="flex items-center gap-4 mb-6">
-                        <div className="h-px flex-1 bg-white/[0.08]" />
+                        <div className="h-px flex-1 bg-white/8" />
                         <div className="border border-white/20 px-4 py-1.5 text-[10px] tracking-widest text-white/40 font-mono">
                             SIDE PROJECTS &amp; EXPERIMENTS
                         </div>
-                        <div className="h-px flex-1 bg-white/[0.08]" />
+                        <div className="h-px flex-1 bg-white/8" />
                     </div>
                     <div className="grid md:grid-cols-2 gap-3">
                         {sideProjects.map((project, i) => (

@@ -10,7 +10,7 @@ const skillCategories = [
             { name: "React.js / Next.js", level: 92 },
             { name: "React Native", level: 88 },
             { name: "TypeScript / JavaScript", level: 90 },
-            { name: "Figma / UI-UX Design", level: 82 },
+            { name: "Figma / UI-UX Design", level: 62 },
         ],
     },
     {
@@ -29,8 +29,8 @@ const skillCategories = [
         skills: [
             { name: "Git / GitHub", level: 92 },
             { name: "AWS (Hosting & Services)", level: 75 },
-            { name: "Linux Administration", level: 80 },
-            { name: "Adobe Photoshop / Blender", level: 72 },
+            { name: "Linux Administration", level: 30 },
+            { name: "Adobe Photoshop / Blender", level: 32 },
         ],
     },
     {
@@ -93,7 +93,7 @@ export default function SkillsSection() {
                                 className="text-sm font-bold font-mono tracking-widest mb-6"
                                 style={{ color: category.color }}
                             >
-                                // {category.title}
+                                {category.title}
                             </h3>
 
                             <div className="flex flex-col gap-5">

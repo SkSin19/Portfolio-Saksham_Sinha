@@ -18,7 +18,7 @@ const orbitron = Orbitron({
 });
 
 export const metadata: Metadata = {
-  title: "Saksham Sinha — Full-Stack Developer & Technical Executive",
+  title: "Saksham Sinha - Portfolio",
   description:
     "Portfolio of Saksham Sinha — B.Tech CS student at KIIT Bhubaneswar (CGPA 8.39), Full-Stack Developer, and Technical Executive at KIIT E-Cell. Building web & mobile apps with Next.js, React Native, Node.js, and MongoDB.",
   keywords: [
@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     "React Native",
     "Next.js",
     "Portfolio",
+    "Saksham sinha portfolio"
   ],
   authors: [{ name: "Saksham Sinha" }],
 };
