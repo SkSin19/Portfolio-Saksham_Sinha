@@ -220,9 +220,8 @@ export default function HeroSequence() {
             {/* Hero UI - fades out as the sequence starts */}
             <div className="hero-ui absolute inset-0 z-20 pointer-events-none">
                 <h1 className="display absolute left-5 md:left-10 top-24 md:top-28 text-[clamp(44px,5.4vw,92px)]">
-                    <span className="hero-line block overflow-hidden"><span className="block">Turning ideas</span></span>
-                    <span className="hero-line block overflow-hidden"><span className="block">into shipped</span></span>
-                    <span className="hero-line block overflow-hidden pb-2"><span className="block italic">products.</span></span>
+                    <span className="hero-line block overflow-hidden"><span className="block">Hi,</span></span>
+                    <span className="hero-line block overflow-hidden"><span className="block">I&apos;m <span className="italic text-[clamp(60px,6.2vw,150px)]">Saksham</span></span></span>
                 </h1>
 
                 <div className="hero-fade hidden md:block absolute right-[8%] top-[28%] w-28 h-28">

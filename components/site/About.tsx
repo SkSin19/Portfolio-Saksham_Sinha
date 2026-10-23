@@ -12,14 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 const facts = [
     { k: "Based in", v: "Bhubaneswar, India" },
     { k: "Studying", v: "B.Tech CS · KIIT · 2024–28" },
-    { k: "CGPA", v: "8.39" },
-    { k: "Running", v: "Quarks Digital" },
+    { k: "CGPA", v: "8.14" },
+    { k: "Founder of", v: "Quarks Digital" },
 ];
 
 const now = [
-    "Building HoneyBee, an AI homework checker",
     "Leading tech at KIIT E-Cell",
-    "Growing Quarks Digital with real clients",
+    "Helping real clients build their businesses ground up through Quarks Digital",
     "Open to internships & freelance work",
 ];
 
@@ -75,15 +74,12 @@ export default function About() {
                 <div className="about-copy">
                     <p className="about-reveal text-[11px] uppercase tracking-[0.3em] text-paper/50">About me</p>
                     <h2 className="about-reveal display text-[clamp(48px,6vw,96px)] mt-4">
-                        Hi, I&apos;m Saksham -
+                        Hi, I&apos;m Saksham.
                         <br />
                         <span className="italic text-yellow">I build things people use.</span>
                     </h2>
                     <p className="about-reveal mt-6 max-w-xl text-paper/70 leading-relaxed">
-                        I&apos;m a full-stack and mobile developer studying Computer Science at KIIT. I like taking an idea from a
-                        sketch in my notebook to something live with real users - apps on the Play Store, sites with thousands of
-                        visits, and now an AI that checks homework. When I&apos;m not coding I&apos;m running Quarks Digital or
-                        mentoring at E-Cell.
+                        I&apos;m a full-stack website and mobile app developer studying Computer Science at KIIT. I am also an aspiring ML engineer with a considerable knowledge in machine learning, deep learning and transformers.
                     </p>
 
                     <dl className="about-reveal mt-8 grid grid-cols-2 gap-px rounded-2xl overflow-hidden bg-white/10 max-w-xl">

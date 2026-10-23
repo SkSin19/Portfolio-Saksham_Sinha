@@ -1,7 +1,7 @@
 export const profile = {
     name: "Saksham Sinha",
     first: "Saksham",
-    role: "Full-Stack & Mobile Developer",
+    role: "Full-Stack Website & App Developer ",
     email: "sakshamsinha9999@gmail.com",
     phone: "+917394062133",
     location: "Bhubaneswar, India",
@@ -28,7 +28,7 @@ export type Project = {
 export const projects: Project[] = [
     {
         title: "HoneyBee",
-        category: "AI Homework Checker",
+        category: "ERROR PATTERN CLASSIFIER",
         period: "2026",
         description:
             "Snap a photo of a solution and HoneyBee reads it, verifies the maths symbolically and pinpoints exactly what went wrong. Expo app backed by a FastAPI pipeline with OCR, LaTeX extraction and a fine-tuned transformer that classifies 13 kinds of mistakes.",

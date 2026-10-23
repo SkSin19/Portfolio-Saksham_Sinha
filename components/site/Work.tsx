@@ -157,7 +157,7 @@ export default function Work() {
                             <span className="italic">built &amp; shipped.</span>
                         </h2>
                         <p className="max-w-sm text-muted text-sm leading-relaxed">
-                            Apps and platforms with real users - from an AI homework checker to official sites for India&apos;s largest student entrepreneurship cell.
+                            Apps and platforms with real users.
                         </p>
                     </div>
                     {projects.map((p, i) => (
