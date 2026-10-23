@@ -1,64 +1,99 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050508;
-  --foreground: #ffffff;
+  --yellow: #ffcb1f;
+  --yellow-deep: #f5b301;
+  --orange: #ff7a00;
+  --red: #ec2a17;
+  --ink: #0f0f0f;
+  --ink-soft: #1b1b1b;
+  --paper: #f7f6f2;
+  --muted: #6b6b6b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-yellow: var(--yellow);
+  --color-yellow-deep: var(--yellow-deep);
+  --color-orange: var(--orange);
+  --color-red: var(--red);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-orbitron: var(--font-orbitron);
+  --font-serif: var(--font-serif);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom Cyberpunk Styles */
-.grid-bg {
-  background-color: #050508;
-  background-image: 
-    linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center;
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
 }
 
-/* Add a fade to grid background */
-.grid-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, transparent 30%, #050508 100%);
-  pointer-events: none;
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+  letter-spacing: -0.02em;
 }
 
-.glow-pink {
-  text-shadow: 0 0 10px rgba(255, 0, 110, 0.6), 0 0 20px rgba(255, 0, 110, 0.3);
+.display {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
 }
 
-.glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 245, 255, 0.6), 0 0 20px rgba(0, 245, 255, 0.3);
+/* Caution tape */
+.tape {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 6px,
+      var(--ink) 6px 9px
+    ) left / 28px 100% no-repeat,
+    var(--yellow);
+  color: var(--ink);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-.text-gradient-cyan-pink {
-  background: linear-gradient(135deg, #00f5ff 0%, #ff006e 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-speed, 30s) linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-.cursor-blink {
-  animation: blink 1s step-end infinite;
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 18s linear infinite;
 }
 
-@keyframes blink {
-  from, to { color: transparent }
-  50% { color: #ff006e }
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .spin-slow { animation: none; }
+}

@@ -1,27 +1,29 @@
-import ScrollProgress from "@/components/ScrollProgress";
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import StatsSection from "@/components/StatsSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import SkillsSection from "@/components/SkillsSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/site/SmoothScroll";
+import Loader from "@/components/site/Loader";
+import Nav from "@/components/site/Nav";
+import HeroSequence from "@/components/site/HeroSequence";
+import Experience from "@/components/site/Experience";
+import Work from "@/components/site/Work";
+import About from "@/components/site/About";
+import Process from "@/components/site/Process";
+import Toolkit from "@/components/site/Toolkit";
+import Footer from "@/components/site/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#050508] text-white selection:bg-[#00f5ff] selection:text-black select-none">
-      <ScrollProgress />
-      <Navbar />
+    <>
+      <SmoothScroll />
+      <Loader />
+      <Nav />
       <main>
-        <HeroSection />
-        <AboutSection />
-        <StatsSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <ContactSection />
+        <HeroSequence />
+        <Experience />
+        <Work />
+        <About />
+        <Process />
+        <Toolkit />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
